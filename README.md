@@ -1,19 +1,13 @@
 # Python Script for local_users into HashiCorp Vault
 
-## Getting local_users from data bag
+## Requirements
 
-```
-$ knife data bag show local_users
-admit9
-bege0005
-blindeen
-...
-```
+This script requires a `.env` file with the following information:
++ `ROLE_ID`: Currently not used.
++ `SECRET_ID`: Currently not used.
++ `MOUNT_POINT`: The mount point of the secrets.
++ `VAULT_PATH`: The path _minus the endpoint_ for the secret. The endpoint will be designated in the script and becomes the name for the secret itself.
++ `VAULT_URL`: The URL:port for the Vault instance.
++ `USER_TOKEN`: Gotten from Vault.
 
-```
-$ knife data bag show local_users admit9
-comment:    MBA admission scripts service account
-disable:    true
-...
-```
-> Note: the `disable: true` line means we don't want to bring them over to Vault.
+
